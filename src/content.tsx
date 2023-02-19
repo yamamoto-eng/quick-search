@@ -4,7 +4,7 @@ import { getGoogleSearchURL } from "~utils/getGoogleSearchURL"
 const Content = () => {
   const onClickSearchButton = () => {
     const url = getGoogleSearchURL("test")
-    window.open(url)
+    window.open(url, "_blank", "noreferrer")
   }
 
   return (
