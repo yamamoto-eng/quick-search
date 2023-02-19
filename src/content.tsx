@@ -1,8 +1,10 @@
 import { GoogleButton } from "~components/GoogleButton"
+import { getGoogleSearchURL } from "~utils/getGoogleSearchURL"
 
 const Content = () => {
   const onClickSearchButton = () => {
-    console.log("clicked")
+    const url = getGoogleSearchURL("test")
+    window.open(url)
   }
 
   return (
