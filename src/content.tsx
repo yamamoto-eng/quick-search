@@ -1,5 +1,15 @@
+import { GoogleButton } from "~components/GoogleButton"
+
 const Content = () => {
-  return <>content</>
+  const onClickSearchButton = () => {
+    console.log("clicked")
+  }
+
+  return (
+    <>
+      <GoogleButton onClick={onClickSearchButton} />
+    </>
+  )
 }
 
 export default Content
