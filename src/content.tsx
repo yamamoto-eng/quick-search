@@ -28,7 +28,7 @@ const Content = () => {
     })
   })
 
-  if (!selectedText) {
+  if (!selectedText.trim()) {
     return null
   }
 
