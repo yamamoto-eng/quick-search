@@ -1,6 +1,6 @@
 {
-  "name": "quick-search-with-google",
-  "displayName": "Quick search with google",
+  "name": "quick-search",
+  "displayName": "Quick search",
   "version": "0.0.1",
   "description": "Shortcut for google search",
   "author": "yamamoto-eng",
