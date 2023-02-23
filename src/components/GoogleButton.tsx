@@ -1,12 +1,12 @@
-import type { FC, HTMLProps } from "react"
-import { FcGoogle } from "react-icons/fc"
+import type { FC, HTMLProps } from "react";
+import { FcGoogle } from "react-icons/fc";
 
 type SearchButtonProps = {
-  onClick: HTMLProps<HTMLDivElement>["onClick"]
-}
+  onClick: HTMLProps<HTMLDivElement>["onClick"];
+};
 
 const GoogleButton: FC<SearchButtonProps> = (props) => {
-  const { onClick } = props
+  const { onClick } = props;
 
   return (
     <div
@@ -20,12 +20,13 @@ const GoogleButton: FC<SearchButtonProps> = (props) => {
         cursor: "pointer",
         display: "flex",
         justifyContent: "center",
-        alignItems: "center"
+        alignItems: "center",
       }}
-      onClick={onClick}>
+      onClick={onClick}
+    >
       <FcGoogle style={{ width: "20px", height: "20px" }} />
     </div>
-  )
-}
+  );
+};
 
-export { GoogleButton }
+export { GoogleButton };

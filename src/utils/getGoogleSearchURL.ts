@@ -1,7 +1,7 @@
-import { googleSearchURL } from "~constant/url"
+import { googleSearchURL } from "~constant/url";
 
 const getGoogleSearchURL = (query: string) => {
-  return `${googleSearchURL}${query}`
-}
+  return `${googleSearchURL}${query}`;
+};
 
-export { getGoogleSearchURL }
+export { getGoogleSearchURL };

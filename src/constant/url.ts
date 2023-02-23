@@ -1,3 +1,3 @@
-const googleSearchURL = "https://www.google.com/search?q="
+const googleSearchURL = "https://www.google.com/search?q=";
 
-export { googleSearchURL }
+export { googleSearchURL };

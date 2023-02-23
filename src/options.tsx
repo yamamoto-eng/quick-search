@@ -1,38 +1,29 @@
-import {
-  Button,
-  Card,
-  Input,
-  InputNumber,
-  Radio,
-  RadioChangeEvent,
-  Space,
-  Typography
-} from "antd"
-import { FC, useState } from "react"
-import { FcCursor } from "react-icons/fc"
+import { Button, Card, Input, InputNumber, Radio, RadioChangeEvent, Space, Typography } from "antd";
+import { FC, useState } from "react";
+import { FcCursor } from "react-icons/fc";
 
-import { SectionWrapper } from "~components/SectionWrapper"
+import { SectionWrapper } from "~components/SectionWrapper";
 
-const { Title, Text } = Typography
+const { Title, Text } = Typography;
 
 const options: FC = () => {
-  const [vertical, setVertical] = useState("center")
-  const [horizontal, setHorizontal] = useState("center")
-  const [showMode, setShowMode] = useState("tab")
-  const [verticalSpace, setVerticalSpace] = useState(0)
-  const [horizontalSpace, setHorizontalSpace] = useState(0)
+  const [vertical, setVertical] = useState("center");
+  const [horizontal, setHorizontal] = useState("center");
+  const [showMode, setShowMode] = useState("tab");
+  const [verticalSpace, setVerticalSpace] = useState(0);
+  const [horizontalSpace, setHorizontalSpace] = useState(0);
 
   const onChangeVertical = (e: RadioChangeEvent) => {
-    setVertical(e.target.value)
-  }
+    setVertical(e.target.value);
+  };
 
   const onChangeHorizontal = (e: RadioChangeEvent) => {
-    setHorizontal(e.target.value)
-  }
+    setHorizontal(e.target.value);
+  };
 
   const onChangeShowMode = (e: RadioChangeEvent) => {
-    setShowMode(e.target.value)
-  }
+    setShowMode(e.target.value);
+  };
 
   return (
     <div style={{ width: "600px", margin: "100px auto" }}>
@@ -54,7 +45,7 @@ const options: FC = () => {
                 addonBefore="Space"
                 value={verticalSpace}
                 onChange={(value) => {
-                  setVerticalSpace(value)
+                  setVerticalSpace(value);
                 }}
               />
 
@@ -68,7 +59,7 @@ const options: FC = () => {
                 addonBefore="Space"
                 value={horizontalSpace}
                 onChange={(value) => {
-                  setHorizontalSpace(value)
+                  setHorizontalSpace(value);
                 }}
               />
             </Space>
@@ -106,7 +97,7 @@ const options: FC = () => {
         Save
       </Button>
     </div>
-  )
-}
+  );
+};
 
-export default options
+export default options;
