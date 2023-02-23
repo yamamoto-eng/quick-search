@@ -4,17 +4,25 @@
   "version": "0.0.1",
   "description": "Shortcut for google search",
   "author": "yamamoto-eng",
+  "license": "MIT",
   "scripts": {
+    "prepare": "husky install",
     "dev": "plasmo dev",
     "build": "plasmo build",
     "package": "plasmo package",
-    "prettier": "prettier --ignore-path .gitignore --check .",
-    "prettier:fix": "prettier --ignore-path .gitignore --write .",
-    "eslint": "eslint --ignore-path .gitignore .",
-    "eslint:fix": "eslint --ignore-path .gitignore --fix .",
-    "format": "yarn prettier && yarn eslint",
-    "format:fix": "yarn prettier:fix && yarn eslint:fix",
-    "typecheck": "tsc"
+    "format": "prettier --ignore-path .gitignore --check .",
+    "format:fix": "prettier --ignore-path .gitignore --write .",
+    "lint": "eslint --ignore-path .gitignore .",
+    "lint:fix": "eslint --ignore-path .gitignore --fix ."
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*": "prettier --ignore-unknown --write",
+    "*.{ts,tsx}": "eslint --max-warnings 0 --fix"
   },
   "dependencies": {
     "antd": "^5.2.2",
@@ -39,7 +47,10 @@
     "eslint-plugin-promise": "^6.0.0",
     "eslint-plugin-react": "^7.32.2",
     "eslint-plugin-react-hooks": "^4.6.0",
-    "prettier": "2.8.3"
+    "husky": "^8.0.3",
+    "lint-staged": "^13.1.2",
+    "prettier": "2.8.3",
+    "typescript": "4.9.4"
   },
   "manifest": {
     "host_permissions": [
