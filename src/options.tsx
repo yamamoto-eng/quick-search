@@ -6,7 +6,7 @@ import { SectionWrapper } from "~components/SectionWrapper";
 
 const { Title, Text } = Typography;
 
-const options: FC = () => {
+const Options: FC = () => {
   const [vertical, setVertical] = useState("center");
   const [horizontal, setHorizontal] = useState("center");
   const [showMode, setShowMode] = useState("tab");
@@ -14,15 +14,21 @@ const options: FC = () => {
   const [horizontalSpace, setHorizontalSpace] = useState<number | null>(0);
 
   const onChangeVertical = (e: RadioChangeEvent) => {
-    setVertical(e.target.value);
+    if (typeof e.target.value === "string") {
+      setVertical(e.target.value);
+    }
   };
 
   const onChangeHorizontal = (e: RadioChangeEvent) => {
-    setHorizontal(e.target.value);
+    if (typeof e.target.value === "string") {
+      setHorizontal(e.target.value);
+    }
   };
 
   const onChangeShowMode = (e: RadioChangeEvent) => {
-    setShowMode(e.target.value);
+    if (typeof e.target.value === "string") {
+      setShowMode(e.target.value);
+    }
   };
 
   return (
@@ -100,4 +106,4 @@ const options: FC = () => {
   );
 };
 
-export default options;
+export default Options;

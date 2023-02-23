@@ -8,7 +8,12 @@
     "dev": "plasmo dev",
     "build": "plasmo build",
     "package": "plasmo package",
-    "prettier": "prettier --ignore-path .gitignore --write . **/*.{ts,tsx}",
+    "prettier": "prettier --ignore-path .gitignore --check .",
+    "prettier:fix": "prettier --ignore-path .gitignore --write .",
+    "eslint": "eslint --ignore-path .gitignore .",
+    "eslint:fix": "eslint --ignore-path .gitignore --fix .",
+    "format": "yarn prettier && yarn eslint",
+    "format:fix": "yarn prettier:fix && yarn eslint:fix",
     "typecheck": "tsc"
   },
   "dependencies": {
@@ -25,8 +30,16 @@
     "@types/node": "18.11.18",
     "@types/react": "18.0.27",
     "@types/react-dom": "18.0.10",
-    "prettier": "2.8.3",
-    "typescript": "4.9.4"
+    "@typescript-eslint/eslint-plugin": "^5.0.0",
+    "eslint": "^8.0.1",
+    "eslint-config-prettier": "^8.6.0",
+    "eslint-config-standard-with-typescript": "^34.0.0",
+    "eslint-plugin-import": "^2.25.2",
+    "eslint-plugin-n": "^15.0.0",
+    "eslint-plugin-promise": "^6.0.0",
+    "eslint-plugin-react": "^7.32.2",
+    "eslint-plugin-react-hooks": "^4.6.0",
+    "prettier": "2.8.3"
   },
   "manifest": {
     "host_permissions": [
