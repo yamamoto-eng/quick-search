@@ -22,7 +22,7 @@ const Content = () => {
 
       // mouseup時には、選択された状態になっているので、処理を遅らせる
       setTimeout(() => {
-        const text = document.getSelection().toString();
+        const text = document.getSelection()?.toString() ?? "";
         setSelectedText(text);
       });
     });

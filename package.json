@@ -8,7 +8,8 @@
     "dev": "plasmo dev",
     "build": "plasmo build",
     "package": "plasmo package",
-    "prettier": "prettier --ignore-path .gitignore --write . **/*.{ts,tsx}"
+    "prettier": "prettier --ignore-path .gitignore --write . **/*.{ts,tsx}",
+    "typecheck": "tsc"
   },
   "dependencies": {
     "antd": "^5.2.2",
