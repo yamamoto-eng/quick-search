@@ -10,8 +10,8 @@ const options: FC = () => {
   const [vertical, setVertical] = useState("center");
   const [horizontal, setHorizontal] = useState("center");
   const [showMode, setShowMode] = useState("tab");
-  const [verticalSpace, setVerticalSpace] = useState(0);
-  const [horizontalSpace, setHorizontalSpace] = useState(0);
+  const [verticalSpace, setVerticalSpace] = useState<number | null>(0);
+  const [horizontalSpace, setHorizontalSpace] = useState<number | null>(0);
 
   const onChangeVertical = (e: RadioChangeEvent) => {
     setVertical(e.target.value);
@@ -27,9 +27,9 @@ const options: FC = () => {
 
   return (
     <div style={{ width: "600px", margin: "100px auto" }}>
-      <Typography.Title italic underline>
+      <Title italic underline>
         Quick Search ~ Setting
-      </Typography.Title>
+      </Title>
 
       <SectionWrapper sectionName="Icon Position">
         <div style={{ display: "flex", justifyContent: "space-between" }}>
