@@ -1,10 +1,24 @@
-import { useRef, useState } from "react";
+import createCache from "@emotion/cache";
+import { CacheProvider } from "@emotion/react";
+import { FC, useRef, useState } from "react";
 import { useEffectOnce } from "react-use";
 
 import { GoogleButton } from "~components/GoogleButton";
 import { getGoogleSearchURL } from "~utils/getGoogleSearchURL";
 
-const Content = () => {
+import * as Styles from "./content.styles";
+
+const styleElement = document.createElement("style");
+
+const styleCache = createCache({
+  key: "plasmo-emotion-cache",
+  prepend: true,
+  container: styleElement,
+});
+
+export const getStyle = () => styleElement;
+
+const Content: FC = () => {
   const [selectedText, setSelectedText] = useState<string>("");
   const ref = useRef({ x: 0, y: 0 });
 
@@ -33,16 +47,11 @@ const Content = () => {
   }
 
   return (
-    <div
-      style={{
-        position: "absolute",
-        transform: `translate(-50%, -50%)`,
-        top: ref.current.y,
-        left: ref.current.x,
-      }}
-    >
-      <GoogleButton onClick={onClickSearchButton} />
-    </div>
+    <CacheProvider value={styleCache}>
+      <Styles.Root y={ref.current.y} x={ref.current.x}>
+        <GoogleButton onClick={onClickSearchButton} />
+      </Styles.Root>
+    </CacheProvider>
   );
 };
 

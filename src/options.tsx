@@ -4,6 +4,8 @@ import { FcCursor } from "react-icons/fc";
 
 import { SectionWrapper } from "~components/SectionWrapper";
 
+import * as Styles from "./options.styles";
+
 const { Title, Text } = Typography;
 
 const Options: FC = () => {
@@ -32,13 +34,13 @@ const Options: FC = () => {
   };
 
   return (
-    <div style={{ width: "600px", margin: "100px auto" }}>
+    <Styles.Root>
       <Title italic underline>
         Quick Search ~ Setting
       </Title>
 
       <SectionWrapper sectionName="Icon Position">
-        <div style={{ display: "flex", justifyContent: "space-between" }}>
+        <Styles.SectionWrapper>
           <div>
             <Space direction="vertical">
               <Text strong>Vertical</Text>
@@ -74,11 +76,11 @@ const Options: FC = () => {
           <Card title="Demo" style={{ width: 200 }}>
             <FcCursor style={{ width: "25px", height: "25px" }} />
           </Card>
-        </div>
+        </Styles.SectionWrapper>
       </SectionWrapper>
 
       <SectionWrapper sectionName="Search Word">
-        <div style={{ display: "flex", justifyContent: "space-between" }}>
+        <Styles.SectionWrapper>
           <Space direction="vertical">
             <Text strong>Prefix</Text>
             <Input placeholder="Prefix" />
@@ -89,7 +91,7 @@ const Options: FC = () => {
           <Card title="Demo" style={{ width: 200 }}>
             Selected Text
           </Card>
-        </div>
+        </Styles.SectionWrapper>
       </SectionWrapper>
 
       <SectionWrapper sectionName="Show Mode">
@@ -102,7 +104,7 @@ const Options: FC = () => {
       <Button type="primary" size="large" block>
         Save
       </Button>
-    </div>
+    </Styles.Root>
   );
 };
 
