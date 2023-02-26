@@ -1,0 +1,10 @@
+{
+  "plugin": "stylelint-prettier",
+  "extends": ["stylelint-config-standard", "stylelint-config-idiomatic-order"],
+  "overrides": [
+    {
+      "files": ["*.{ts,tsx}"],
+      "customSyntax": "@stylelint/postcss-css-in-js"
+    }
+  ]
+}

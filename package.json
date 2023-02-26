@@ -14,7 +14,9 @@
     "format:fix": "prettier --ignore-path .gitignore --write .",
     "lint": "eslint --ignore-path .gitignore .",
     "lint:fix": "eslint --ignore-path .gitignore --fix .",
-    "typecheck": "tsc -p tsconfig.json --noEmit"
+    "typecheck": "tsc --noEmit",
+    "stylelint": "stylelint \"**/*.{ts,tsx}\"",
+    "stylelint:fix": "stylelint \"**/*.{ts,tsx}\" --fix"
   },
   "husky": {
     "hooks": {
@@ -24,9 +26,13 @@
   "lint-staged": {
     "*": "prettier --ignore-unknown --write",
     "*.{ts,tsx}": [
+      "stylelint --fix",
       "eslint --max-warnings 0 --fix",
-      "tsc -p tsconfig.json --noEmit"
+      "tsc --noEmit"
     ]
+  },
+  "resolutions": {
+    "@types/react": "18.0.27"
   },
   "dependencies": {
     "@emotion/cache": "^11.10.5",
@@ -41,6 +47,7 @@
   },
   "devDependencies": {
     "@plasmohq/prettier-plugin-sort-imports": "3.6.1",
+    "@stylelint/postcss-css-in-js": "^0.38.0",
     "@types/chrome": "0.0.210",
     "@types/node": "18.11.18",
     "@types/react": "18.0.27",
@@ -56,7 +63,12 @@
     "eslint-plugin-react-hooks": "^4.6.0",
     "husky": "^8.0.3",
     "lint-staged": "^13.1.2",
+    "postcss-syntax": "^0.36.2",
     "prettier": "2.8.3",
+    "stylelint": "^15.2.0",
+    "stylelint-config-idiomatic-order": "^9.0.0",
+    "stylelint-config-standard": "^30.0.1",
+    "stylelint-prettier": "^3.0.0",
     "typescript": "4.9.4"
   },
   "manifest": {
