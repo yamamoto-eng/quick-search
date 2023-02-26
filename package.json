@@ -10,13 +10,14 @@
     "dev": "plasmo dev",
     "build": "plasmo build",
     "package": "plasmo package",
-    "format": "prettier --ignore-path .gitignore --check .",
-    "format:fix": "prettier --ignore-path .gitignore --write .",
-    "lint": "eslint --ignore-path .gitignore .",
-    "lint:fix": "eslint --ignore-path .gitignore --fix .",
+    "test": "jest",
     "typecheck": "tsc --noEmit",
-    "stylelint": "stylelint \"**/*.{ts,tsx}\"",
-    "stylelint:fix": "stylelint \"**/*.{ts,tsx}\" --fix"
+    "prettier": "prettier --ignore-path .gitignore --check .",
+    "prettier:fix": "prettier --ignore-path .gitignore --write .",
+    "eslint": "eslint --ignore-path .gitignore .",
+    "eslint:fix": "eslint --ignore-path .gitignore --fix .",
+    "style": "stylelint \"**/*.{ts,tsx}\"",
+    "style:fix": "stylelint \"**/*.{ts,tsx}\" --fix"
   },
   "husky": {
     "hooks": {
@@ -27,7 +28,8 @@
     "*": "prettier --ignore-unknown --write",
     "*.{ts,tsx}": [
       "stylelint --fix",
-      "eslint --max-warnings 0 --fix"
+      "eslint --max-warnings 0 --fix",
+      "yarn test"
     ]
   },
   "resolutions": {
@@ -47,7 +49,9 @@
   "devDependencies": {
     "@plasmohq/prettier-plugin-sort-imports": "3.6.1",
     "@stylelint/postcss-css-in-js": "^0.38.0",
+    "@testing-library/react": "^14.0.0",
     "@types/chrome": "0.0.210",
+    "@types/jest": "^29.4.0",
     "@types/node": "18.11.18",
     "@types/react": "18.0.27",
     "@types/react-dom": "18.0.10",
@@ -61,6 +65,9 @@
     "eslint-plugin-react": "^7.32.2",
     "eslint-plugin-react-hooks": "^4.6.0",
     "husky": "^8.0.3",
+    "jest": "^29.4.3",
+    "jest-environment-jsdom": "^29.4.3",
+    "jest-webextension-mock": "^3.8.8",
     "lint-staged": "^13.1.2",
     "postcss-syntax": "^0.36.2",
     "prettier": "2.8.3",
@@ -68,6 +75,7 @@
     "stylelint-config-idiomatic-order": "^9.0.0",
     "stylelint-config-standard": "^30.0.1",
     "stylelint-prettier": "^3.0.0",
+    "ts-jest": "^29.0.5",
     "typescript": "4.9.4"
   },
   "manifest": {
