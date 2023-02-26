@@ -27,8 +27,7 @@
     "*": "prettier --ignore-unknown --write",
     "*.{ts,tsx}": [
       "stylelint --fix",
-      "eslint --max-warnings 0 --fix",
-      "tsc --noEmit"
+      "eslint --max-warnings 0 --fix"
     ]
   },
   "resolutions": {
