@@ -6,7 +6,7 @@ import { GoogleButton } from "~components/GoogleButton/GoogleButton";
 import { useStorageIconPosition } from "~hooks/useStorageIconPosition";
 import { getGoogleSearchURL } from "~utils/getGoogleSearchURL";
 
-import * as Styles from "./Content.styles";
+import { Root } from "./Content.styles";
 
 const Content: FC = () => {
   const { iconPosition } = useStorageIconPosition();
@@ -51,9 +51,9 @@ const Content: FC = () => {
   }
 
   return (
-    <Styles.Root y={y} x={x}>
+    <Root y={y} x={x}>
       <GoogleButton onClick={onClickSearchButton} />
-    </Styles.Root>
+    </Root>
   );
 };
 

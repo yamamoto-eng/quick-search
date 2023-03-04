@@ -17,7 +17,7 @@ import { isHorizontalDirection } from "~utils/isHorizontalDirection";
 import { isNumber } from "~utils/isNumber";
 import { isVerticalDirection } from "~utils/isVerticalDirection";
 
-import * as Styles from "./Options.styles";
+import { Root } from "./Options.styles";
 
 const { Title, Text } = Typography;
 
@@ -58,61 +58,60 @@ const Options: FC = () => {
   };
 
   return (
-    <Styles.Root>
+    <Root>
       <Title italic underline>
         Quick Search ~ Setting
       </Title>
 
       <SectionWrapper sectionName="Icon Position">
-        <Styles.SectionWrapper>
-          <div>
-            <Space direction="vertical">
-              <Text strong>Vertical</Text>
-              <Radio.Group value={iconPosition.vertical.direction} onChange={onChangeVerticalDirection}>
-                <Radio value={"top"}>top</Radio>
-                <Radio value={"center"}>center</Radio>
-                <Radio value={"bottom"}>bottom</Radio>
-              </Radio.Group>
-              <InputNumber addonBefore="Space" value={iconPosition.vertical.space} onChange={onChangeVerticalSpace} />
+        <Space>
+          <Space direction="vertical">
+            <Text strong>Vertical</Text>
+            <Radio.Group value={iconPosition.vertical.direction} onChange={onChangeVerticalDirection}>
+              <Radio value="top">top</Radio>
+              <Radio value="center">center</Radio>
+              <Radio value="bottom">bottom</Radio>
+            </Radio.Group>
+            <InputNumber addonBefore="Space" value={iconPosition.vertical.space} onChange={onChangeVerticalSpace} />
+          </Space>
 
-              <Text strong>Horizontal</Text>
-              <Radio.Group onChange={onChangeHorizontalDirection} value={iconPosition.horizontal.direction}>
-                <Radio value={"left"}>left</Radio>
-                <Radio value={"center"}>center</Radio>
-                <Radio value={"right"}>right</Radio>
-              </Radio.Group>
-              <InputNumber
-                addonBefore="Space"
-                value={iconPosition.horizontal.space}
-                onChange={onChangeHorizontalSpace}
-              />
-            </Space>
-          </div>
-        </Styles.SectionWrapper>
+          <Space direction="vertical">
+            <Text strong>Horizontal</Text>
+            <Radio.Group onChange={onChangeHorizontalDirection} value={iconPosition.horizontal.direction}>
+              <Radio value="left">left</Radio>
+              <Radio value="center">center</Radio>
+              <Radio value="right">right</Radio>
+            </Radio.Group>
+            <InputNumber addonBefore="Space" value={iconPosition.horizontal.space} onChange={onChangeHorizontalSpace} />
+          </Space>
+        </Space>
       </SectionWrapper>
 
       <SectionWrapper sectionName="Search Word">
-        <Styles.SectionWrapper>
+        <Space>
           <Space direction="vertical">
             <Text strong>Prefix</Text>
             <Input placeholder="Prefix" />
+          </Space>
+
+          <Space direction="vertical">
             <Text strong>Suffix</Text>
             <Input placeholder="Suffix" />
           </Space>
-        </Styles.SectionWrapper>
+        </Space>
       </SectionWrapper>
 
       <SectionWrapper sectionName="Show Mode">
         <Radio.Group onChange={onChangeShowMode} value={showMode}>
-          <Radio value={"tab"}>tab</Radio>
-          <Radio value={"window"}>window</Radio>
+          <Radio value="tab">tab</Radio>
+          <Radio value="window">window</Radio>
         </Radio.Group>
       </SectionWrapper>
 
       <Button type="primary" size="large" block>
         Save
       </Button>
-    </Styles.Root>
+    </Root>
   );
 };
 
