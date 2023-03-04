@@ -1,5 +1,4 @@
 import {
-  Button,
   Input,
   InputNumber,
   InputNumberProps,
@@ -119,10 +118,6 @@ const Options: FC = () => {
           <Radio value="window">window</Radio>
         </Radio.Group>
       </SectionWrapper>
-
-      <Button type="primary" size="large" block>
-        Save
-      </Button>
     </Root>
   );
 };
