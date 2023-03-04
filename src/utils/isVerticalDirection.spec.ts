@@ -3,7 +3,6 @@ import { isVerticalDirection } from "./isVerticalDirection";
 describe("isVerticalDirection", () => {
   it("should return true if top or center or bottom", () => {
     expect(isVerticalDirection("top")).toBe(true);
-    expect(isVerticalDirection("center")).toBe(true);
     expect(isVerticalDirection("bottom")).toBe(true);
   });
   it("should return false if not top or center or bottom", () => {

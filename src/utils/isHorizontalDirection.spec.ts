@@ -3,7 +3,6 @@ import { isHorizontalDirection } from "./isHorizontalDirection";
 describe("isHorizontalDirection", () => {
   it("should return true if left or center or right", () => {
     expect(isHorizontalDirection("left")).toBe(true);
-    expect(isHorizontalDirection("center")).toBe(true);
     expect(isHorizontalDirection("right")).toBe(true);
   });
   it("should return false if not left or center or right", () => {

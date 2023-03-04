@@ -17,13 +17,11 @@ const Content: FC = () => {
   const ref = useRef({ x: 0, y: 0 });
 
   const y = match(iconPosition.vertical.direction)
-    .with("center", () => ref.current.y)
     .with("top", () => ref.current.y - iconPosition.vertical.space)
     .with("bottom", () => ref.current.y + iconPosition.vertical.space)
     .exhaustive();
 
   const x = match(iconPosition.horizontal.direction)
-    .with("center", () => ref.current.x)
     .with("left", () => ref.current.x - iconPosition.horizontal.space)
     .with("right", () => ref.current.x + iconPosition.horizontal.space)
     .exhaustive();

@@ -1,10 +1,10 @@
 export type IconPosition = {
   vertical: {
-    direction: "top" | "center" | "bottom";
+    direction: "top" | "bottom";
     space: number;
   };
   horizontal: {
-    direction: "left" | "center" | "right";
+    direction: "left" | "right";
     space: number;
   };
 };

@@ -4,11 +4,11 @@ const STORAGE_KEY = "icon-position";
 
 const INITIAL_VALUE = {
   vertical: {
-    direction: "center",
+    direction: "top",
     space: 0,
   },
   horizontal: {
-    direction: "center",
+    direction: "left",
     space: 0,
   },
 } as const satisfies IconPosition;

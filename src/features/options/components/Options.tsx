@@ -80,7 +80,6 @@ const Options: FC = () => {
             <Text strong>Vertical</Text>
             <Radio.Group value={iconPosition.vertical.direction} onChange={onChangeVerticalDirection}>
               <Radio value="top">top</Radio>
-              <Radio value="center">center</Radio>
               <Radio value="bottom">bottom</Radio>
             </Radio.Group>
             <InputNumber addonBefore="Space" value={iconPosition.vertical.space} onChange={onChangeVerticalSpace} />
@@ -90,7 +89,6 @@ const Options: FC = () => {
             <Text strong>Horizontal</Text>
             <Radio.Group onChange={onChangeHorizontalDirection} value={iconPosition.horizontal.direction}>
               <Radio value="left">left</Radio>
-              <Radio value="center">center</Radio>
               <Radio value="right">right</Radio>
             </Radio.Group>
             <InputNumber addonBefore="Space" value={iconPosition.horizontal.space} onChange={onChangeHorizontalSpace} />
