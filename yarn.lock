@@ -1992,6 +1992,11 @@
     lodash.clone "4.5.0"
     lodash.isequal "4.5.0"
 
+"@plasmohq/storage@^1.1.0":
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/@plasmohq/storage/-/storage-1.1.0.tgz#c3922007b8b565836fdf078dacaf0a1d4babafc9"
+  integrity sha512-PXXZ8/OTHvc0TZualQyxlZnjPjhs3JF9kYWiRAAcS7h3CIb46asD16PI0rFY2yY7pv+jj+eDa4xt+DW64pNN+A==
+
 "@pnpm/network.ca-file@^1.0.1":
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/@pnpm/network.ca-file/-/network.ca-file-1.0.2.tgz#2ab05e09c1af0cdf2fcf5035bea1484e222f7983"
@@ -8863,6 +8868,11 @@ ts-jest@^29.0.5:
     make-error "1.x"
     semver "7.x"
     yargs-parser "^21.0.1"
+
+ts-pattern@^4.2.1:
+  version "4.2.1"
+  resolved "https://registry.yarnpkg.com/ts-pattern/-/ts-pattern-4.2.1.tgz#d626da4c5755d78c1ae62b8f2675c94884a31a8c"
+  integrity sha512-lXCmHZb01QOM9HdCLvisCGUH9ATdKPON9UaUvwe007gJAhuSBhRWIAIowys5QqNxEq6odWctfMIdI96vzjnOMQ==
 
 ts-toolbelt@^9.6.0:
   version "9.6.0"
