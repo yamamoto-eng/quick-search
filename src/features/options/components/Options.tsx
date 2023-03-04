@@ -1,6 +1,5 @@
 import {
   Button,
-  Card,
   Input,
   InputNumber,
   InputNumberProps,
@@ -11,7 +10,6 @@ import {
   Typography,
 } from "antd";
 import { FC, useState } from "react";
-import { FcCursor } from "react-icons/fc";
 
 import { SectionWrapper } from "~components/SectionWrapper/SectionWrapper";
 import { useStorageIconPosition } from "~hooks/useStorageIconPosition";
@@ -90,10 +88,6 @@ const Options: FC = () => {
               />
             </Space>
           </div>
-
-          <Card title="Demo" style={{ width: 200 }}>
-            <FcCursor style={{ width: "25px", height: "25px" }} />
-          </Card>
         </Styles.SectionWrapper>
       </SectionWrapper>
 
@@ -105,10 +99,6 @@ const Options: FC = () => {
             <Text strong>Suffix</Text>
             <Input placeholder="Suffix" />
           </Space>
-
-          <Card title="Demo" style={{ width: 200 }}>
-            Selected Text
-          </Card>
         </Styles.SectionWrapper>
       </SectionWrapper>
 
