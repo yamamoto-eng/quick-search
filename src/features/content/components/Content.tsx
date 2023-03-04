@@ -3,7 +3,7 @@ import { useEffectOnce } from "react-use";
 import { match } from "ts-pattern";
 
 import { GoogleButton } from "~components";
-import { useStorageIconPosition, useStorageSearchWord } from "~hooks";
+import { useStorageIconPosition, useStorageSearchWord, useStorageShowMode } from "~hooks";
 import { getGoogleSearchURL } from "~utils";
 
 import { Root } from "./Content.styles";
@@ -11,6 +11,7 @@ import { Root } from "./Content.styles";
 const Content: FC = () => {
   const { iconPosition } = useStorageIconPosition();
   const { searchWord } = useStorageSearchWord();
+  const { showMode } = useStorageShowMode();
 
   const [selectedText, setSelectedText] = useState<string>("");
   const ref = useRef({ x: 0, y: 0 });
@@ -25,10 +26,17 @@ const Content: FC = () => {
     .with("right", () => ref.current.x + iconPosition.horizontal.space)
     .exhaustive();
 
+  const windowOpen = (url: string) => {
+    match(showMode)
+      .with("tab", () => window.open(url, "_blank", "noreferrer"))
+      .with("window", () => window.open(url, "_blank", "noreferrer popup width=800px height=600px"))
+      .exhaustive();
+  };
+
   const onClickSearchButton = () => {
     const query = `${searchWord.prefix}${selectedText}${searchWord.suffix}`;
     const url = `${getGoogleSearchURL(query)}`;
-    window.open(url, "_blank", "noreferrer");
+    windowOpen(url);
   };
 
   useEffectOnce(() => {

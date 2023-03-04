@@ -9,11 +9,12 @@ import {
   Space,
   Typography,
 } from "antd";
-import { FC, useState } from "react";
+import type { FC } from "react";
 
 import { SectionWrapper } from "~components";
 import { useStorageIconPosition, useStorageSearchWord } from "~hooks";
-import { isHorizontalDirection, isNumber, isVerticalDirection } from "~utils";
+import { useStorageShowMode } from "~hooks/useStorageShowMode/useStorageShowMode";
+import { isHorizontalDirection, isNumber, isShowMode, isVerticalDirection } from "~utils";
 
 import { Root } from "./Options.styles";
 
@@ -22,10 +23,8 @@ const { Title, Text } = Typography;
 const Options: FC = () => {
   const { iconPosition, setVerticalDirection, setVerticalSpace, setHorizontalDirection, setHorizontalSpace } =
     useStorageIconPosition();
-
   const { searchWord, setPrefix, setSuffix } = useStorageSearchWord();
-
-  const [showMode, setShowMode] = useState("tab");
+  const { showMode, setShowMode } = useStorageShowMode();
 
   const onChangeVerticalDirection: RadioGroupProps["onChange"] = (e) => {
     if (isVerticalDirection(e.target.value)) {
@@ -60,8 +59,8 @@ const Options: FC = () => {
   };
 
   const onChangeShowMode = (e: RadioChangeEvent) => {
-    if (typeof e.target.value === "string") {
-      setShowMode(e.target.value);
+    if (isShowMode(e.target.value)) {
+      setShowMode(e.target.value).catch(console.error);
     }
   };
 
