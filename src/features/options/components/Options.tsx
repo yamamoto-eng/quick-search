@@ -1,29 +1,55 @@
-import { Button, Card, Input, InputNumber, Radio, RadioChangeEvent, Space, Typography } from "antd";
+import {
+  Button,
+  Card,
+  Input,
+  InputNumber,
+  InputNumberProps,
+  Radio,
+  RadioChangeEvent,
+  RadioGroupProps,
+  Space,
+  Typography,
+} from "antd";
 import { FC, useState } from "react";
 import { FcCursor } from "react-icons/fc";
 
 import { SectionWrapper } from "~components/SectionWrapper/SectionWrapper";
+import { useStorageIconPosition } from "~hooks/useStorageIconPosition";
+import { isHorizontalDirection } from "~utils/isHorizontalDirection";
+import { isNumber } from "~utils/isNumber";
+import { isVerticalDirection } from "~utils/isVerticalDirection";
 
 import * as Styles from "./Options.styles";
 
 const { Title, Text } = Typography;
 
 const Options: FC = () => {
-  const [vertical, setVertical] = useState("center");
-  const [horizontal, setHorizontal] = useState("center");
-  const [showMode, setShowMode] = useState("tab");
-  const [verticalSpace, setVerticalSpace] = useState<number | null>(0);
-  const [horizontalSpace, setHorizontalSpace] = useState<number | null>(0);
+  const { iconPosition, setVerticalDirection, setVerticalSpace, setHorizontalDirection, setHorizontalSpace } =
+    useStorageIconPosition();
 
-  const onChangeVertical = (e: RadioChangeEvent) => {
-    if (typeof e.target.value === "string") {
-      setVertical(e.target.value);
+  const [showMode, setShowMode] = useState("tab");
+
+  const onChangeVerticalDirection: RadioGroupProps["onChange"] = (e) => {
+    if (isVerticalDirection(e.target.value)) {
+      setVerticalDirection(e.target.value).catch(console.error);
     }
   };
 
-  const onChangeHorizontal = (e: RadioChangeEvent) => {
-    if (typeof e.target.value === "string") {
-      setHorizontal(e.target.value);
+  const onChangeVerticalSpace: InputNumberProps["onChange"] = (value) => {
+    if (isNumber(value)) {
+      setVerticalSpace(value).catch(console.error);
+    }
+  };
+
+  const onChangeHorizontalDirection = (e: RadioChangeEvent) => {
+    if (isHorizontalDirection(e.target.value)) {
+      setHorizontalDirection(e.target.value).catch(console.error);
+    }
+  };
+
+  const onChangeHorizontalSpace: InputNumberProps["onChange"] = (value) => {
+    if (isNumber(value)) {
+      setHorizontalSpace(value).catch(console.error);
     }
   };
 
@@ -44,31 +70,23 @@ const Options: FC = () => {
           <div>
             <Space direction="vertical">
               <Text strong>Vertical</Text>
-              <Radio.Group onChange={onChangeVertical} value={vertical}>
+              <Radio.Group value={iconPosition.vertical.direction} onChange={onChangeVerticalDirection}>
                 <Radio value={"top"}>top</Radio>
                 <Radio value={"center"}>center</Radio>
                 <Radio value={"bottom"}>bottom</Radio>
               </Radio.Group>
-              <InputNumber
-                addonBefore="Space"
-                value={verticalSpace}
-                onChange={(value) => {
-                  setVerticalSpace(value);
-                }}
-              />
+              <InputNumber addonBefore="Space" value={iconPosition.vertical.space} onChange={onChangeVerticalSpace} />
 
               <Text strong>Horizontal</Text>
-              <Radio.Group onChange={onChangeHorizontal} value={horizontal}>
+              <Radio.Group onChange={onChangeHorizontalDirection} value={iconPosition.horizontal.direction}>
                 <Radio value={"left"}>left</Radio>
                 <Radio value={"center"}>center</Radio>
                 <Radio value={"right"}>right</Radio>
               </Radio.Group>
               <InputNumber
                 addonBefore="Space"
-                value={horizontalSpace}
-                onChange={(value) => {
-                  setHorizontalSpace(value);
-                }}
+                value={iconPosition.horizontal.space}
+                onChange={onChangeHorizontalSpace}
               />
             </Space>
           </div>

@@ -1,14 +1,30 @@
 import { FC, useRef, useState } from "react";
 import { useEffectOnce } from "react-use";
+import { match } from "ts-pattern";
 
 import { GoogleButton } from "~components/GoogleButton/GoogleButton";
+import { useStorageIconPosition } from "~hooks/useStorageIconPosition";
 import { getGoogleSearchURL } from "~utils/getGoogleSearchURL";
 
 import * as Styles from "./Content.styles";
 
 const Content: FC = () => {
+  const { iconPosition } = useStorageIconPosition();
+
   const [selectedText, setSelectedText] = useState<string>("");
   const ref = useRef({ x: 0, y: 0 });
+
+  const y = match(iconPosition.vertical.direction)
+    .with("center", () => ref.current.y)
+    .with("top", () => ref.current.y - iconPosition.vertical.space)
+    .with("bottom", () => ref.current.y + iconPosition.vertical.space)
+    .exhaustive();
+
+  const x = match(iconPosition.horizontal.direction)
+    .with("center", () => ref.current.x)
+    .with("left", () => ref.current.x - iconPosition.horizontal.space)
+    .with("right", () => ref.current.x + iconPosition.horizontal.space)
+    .exhaustive();
 
   const onClickSearchButton = () => {
     const url = getGoogleSearchURL(selectedText);
@@ -35,7 +51,7 @@ const Content: FC = () => {
   }
 
   return (
-    <Styles.Root y={ref.current.y} x={ref.current.x}>
+    <Styles.Root y={y} x={x}>
       <GoogleButton onClick={onClickSearchButton} />
     </Styles.Root>
   );
