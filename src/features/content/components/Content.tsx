@@ -2,10 +2,9 @@ import { FC, useRef, useState } from "react";
 import { useEffectOnce } from "react-use";
 import { match } from "ts-pattern";
 
-import { GoogleButton } from "~components/GoogleButton/GoogleButton";
-import { useStorageIconPosition } from "~hooks/useStorageIconPosition";
-import { useStorageSearchWord } from "~hooks/useStorageSearchWord";
-import { getGoogleSearchURL } from "~utils/getGoogleSearchURL";
+import { GoogleButton } from "~components";
+import { useStorageIconPosition, useStorageSearchWord } from "~hooks";
+import { getGoogleSearchURL } from "~utils";
 
 import { Root } from "./Content.styles";
 

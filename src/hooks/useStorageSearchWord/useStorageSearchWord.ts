@@ -1,7 +1,7 @@
 import { useStorage } from "@plasmohq/storage/hook";
 
-import { SEARCH_WORD } from "~constant/searchWord";
-import type { SearchWord } from "~types/searchWord";
+import { SEARCH_WORD } from "~constant";
+import type { SearchWord } from "~types";
 
 export const useStorageSearchWord = () => {
   const [searchWord, setSearchWord] = useStorage<SearchWord>(SEARCH_WORD.STORAGE_KEY, (value) =>

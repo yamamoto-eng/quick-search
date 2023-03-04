@@ -1,7 +1,7 @@
 import { useStorage } from "@plasmohq/storage/hook";
 
-import { ICON_POSITION } from "~constant/iconPosition";
-import type { IconPosition } from "~types/iconPosition";
+import { ICON_POSITION } from "~constant";
+import type { IconPosition } from "~types";
 
 export const useStorageIconPosition = () => {
   const [iconPosition, setIconPosition] = useStorage<IconPosition>(ICON_POSITION.STORAGE_KEY, (value) =>

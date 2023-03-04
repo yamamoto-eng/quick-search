@@ -11,12 +11,9 @@ import {
 } from "antd";
 import { FC, useState } from "react";
 
-import { SectionWrapper } from "~components/SectionWrapper/SectionWrapper";
-import { useStorageIconPosition } from "~hooks/useStorageIconPosition";
-import { useStorageSearchWord } from "~hooks/useStorageSearchWord";
-import { isHorizontalDirection } from "~utils/isHorizontalDirection";
-import { isNumber } from "~utils/isNumber";
-import { isVerticalDirection } from "~utils/isVerticalDirection";
+import { SectionWrapper } from "~components";
+import { useStorageIconPosition, useStorageSearchWord } from "~hooks";
+import { isHorizontalDirection, isNumber, isVerticalDirection } from "~utils";
 
 import { Root } from "./Options.styles";
 
