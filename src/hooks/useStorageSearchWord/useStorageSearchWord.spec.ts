@@ -2,7 +2,7 @@ import { act, renderHook } from "@testing-library/react";
 
 import { useStorage } from "@plasmohq/storage/hook";
 
-import { SEARCH_WORD } from "~constant/searchWord";
+import { SEARCH_WORD } from "~constant";
 
 import { useStorageSearchWord } from "./useStorageSearchWord";
 

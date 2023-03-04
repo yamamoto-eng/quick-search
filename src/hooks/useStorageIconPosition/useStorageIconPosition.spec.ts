@@ -2,7 +2,7 @@ import { act, renderHook } from "@testing-library/react";
 
 import { useStorage } from "@plasmohq/storage/hook";
 
-import { ICON_POSITION } from "~constant/iconPosition";
+import { ICON_POSITION } from "~constant";
 
 import { useStorageIconPosition } from "./useStorageIconPosition";
 
