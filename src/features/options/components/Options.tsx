@@ -3,6 +3,7 @@ import {
   Input,
   InputNumber,
   InputNumberProps,
+  InputProps,
   Radio,
   RadioChangeEvent,
   RadioGroupProps,
@@ -13,6 +14,7 @@ import { FC, useState } from "react";
 
 import { SectionWrapper } from "~components/SectionWrapper/SectionWrapper";
 import { useStorageIconPosition } from "~hooks/useStorageIconPosition";
+import { useStorageSearchWord } from "~hooks/useStorageSearchWord";
 import { isHorizontalDirection } from "~utils/isHorizontalDirection";
 import { isNumber } from "~utils/isNumber";
 import { isVerticalDirection } from "~utils/isVerticalDirection";
@@ -24,6 +26,8 @@ const { Title, Text } = Typography;
 const Options: FC = () => {
   const { iconPosition, setVerticalDirection, setVerticalSpace, setHorizontalDirection, setHorizontalSpace } =
     useStorageIconPosition();
+
+  const { searchWord, setPrefix, setSuffix } = useStorageSearchWord();
 
   const [showMode, setShowMode] = useState("tab");
 
@@ -49,6 +53,14 @@ const Options: FC = () => {
     if (isNumber(value)) {
       setHorizontalSpace(value).catch(console.error);
     }
+  };
+
+  const onChangePrefix: InputProps["onChange"] = (e) => {
+    setPrefix(e.target.value).catch(console.error);
+  };
+
+  const onChangeSuffix: InputProps["onChange"] = (e) => {
+    setSuffix(e.target.value).catch(console.error);
   };
 
   const onChangeShowMode = (e: RadioChangeEvent) => {
@@ -91,12 +103,12 @@ const Options: FC = () => {
         <Space>
           <Space direction="vertical">
             <Text strong>Prefix</Text>
-            <Input placeholder="Prefix" />
+            <Input placeholder="Prefix" value={searchWord.prefix} onChange={onChangePrefix} />
           </Space>
 
           <Space direction="vertical">
             <Text strong>Suffix</Text>
-            <Input placeholder="Suffix" />
+            <Input placeholder="Suffix" value={searchWord.suffix} onChange={onChangeSuffix} />
           </Space>
         </Space>
       </SectionWrapper>

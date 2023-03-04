@@ -4,12 +4,14 @@ import { match } from "ts-pattern";
 
 import { GoogleButton } from "~components/GoogleButton/GoogleButton";
 import { useStorageIconPosition } from "~hooks/useStorageIconPosition";
+import { useStorageSearchWord } from "~hooks/useStorageSearchWord";
 import { getGoogleSearchURL } from "~utils/getGoogleSearchURL";
 
 import { Root } from "./Content.styles";
 
 const Content: FC = () => {
   const { iconPosition } = useStorageIconPosition();
+  const { searchWord } = useStorageSearchWord();
 
   const [selectedText, setSelectedText] = useState<string>("");
   const ref = useRef({ x: 0, y: 0 });
@@ -27,7 +29,8 @@ const Content: FC = () => {
     .exhaustive();
 
   const onClickSearchButton = () => {
-    const url = getGoogleSearchURL(selectedText);
+    const query = `${searchWord.prefix}${selectedText}${searchWord.suffix}`;
+    const url = `${getGoogleSearchURL(query)}`;
     window.open(url, "_blank", "noreferrer");
   };
 
