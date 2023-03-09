@@ -1,0 +1,15 @@
+name: lint-check
+
+on: [push]
+
+jobs:
+  run-lint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: install dependencies
+        run: yarn install
+      - name: run stylelint
+        run: yarn style
+      - name: run eslint
+        run: yarn eslint
