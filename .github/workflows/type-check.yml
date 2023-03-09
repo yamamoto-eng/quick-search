@@ -1,0 +1,13 @@
+name: type-check
+
+on: [push]
+
+jobs:
+  run-typecheck:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: install dependencies
+        run: yarn install
+      - name: run typecheck
+        run: yarn typecheck
